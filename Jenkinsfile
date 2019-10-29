@@ -31,17 +31,18 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
+		stage('DeployToProduction') {
             when {
                 branch 'master'
             }
             steps {
                 input 'Deploy to Production?'
-                milestone(10)
+                milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train.yml',
                     enableConfigSubstitution: true
+                )
             }
         }
     }
