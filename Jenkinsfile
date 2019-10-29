@@ -44,7 +44,7 @@ pipeline {
             }
             steps {
                 input 'Deploy to Production?'
-                milestone(1)
+                milestone(10)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
